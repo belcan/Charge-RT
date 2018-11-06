@@ -3,30 +3,42 @@
     <head>
 <style type="text/css">
   input { border: none;
-          padding:3.5px;
+          padding:1.5px;
           margin: 1px;
           font-weight:bold; 
           background-color:#ffffcc;
           text-transform: uppercase;
           line-height: 90%;
         }
-    
+     body{
+          background-color:#F2EEFE;
+      }    
+
      h3{
-          padding: 1px;
+          padding: 0.5px;
           margin: 3px;
-          font-size: 1.3em;
-         // margin-left: 200px;
+          font-size: 1.5em;
+          margin-bottom: 9px;
          // margin-right: 200px;
-          cursor: pointer;
+          //cursor: pointer;
           border: outset;
+          border-color: #F6CFB9;
          text-align: center;
-                 
+          box-shadow: 10px 4px 10px rgba(0,0,0,0.6);       
         }
+
+   
     
+     .er:hover{
+     -webkit-transform: scaleX(-1);
+     transform: scaleX(-1);
+
+}
+
     .stats{
         font-style: oblique;
         font-size: 0.9em;
-        font-family: Impact, Charcoal, sans-serif;
+        font-family: Arial, sans-serif;
         font-weight: 200;
     }
     #clockbox{
@@ -36,23 +48,43 @@
         font-size: 1.5em;
         margin-left: 20px;
         display: inline;
+        box-shadow: 10px 4px 10px 0px rgba(0,0,0,0.4); 
+    }
+ #clockbox:hover{
+         background-color:#8FFEC3;
+         box-shadow: 10px 4px 10px 0px rgba(0,0,0,0.8);
+
+         
     }
     #printbtn{
         margin-left: 600px;
+        -webkit-transition: all 1.3s ease-in-out;
+	-moz-transition:    all 1.3s ease-in-out;
+	-o-transition:      all 1.3s ease-in-out;
+	-ms-transition:     all 1.3s ease-in-out;
+        box-shadow: 10px 4px 10px 0px rgba(0,0,0,0.4);
     }
+
+    #printbtn:hover{
+         background-color:#77E2F3;
+         cursor: pointer;
+         -webkit-transform: rotate(360deg) scale(1.3);
+	-moz-transform:    rotate(360deg) scale(1.3);
+	-o-transform:      rotate(360deg) scale(1.3);
+	-ms-transform:     rotate(360deg) scale(1.3);
+        box-shadow: 10px 4px 10px 0px rgba(0,0,0,0.8);
+    }
+
  h3:hover{
-            font-size: 1.4em;
+           
             color: darkorchid;
         }  
        
 input:hover{
-            //font-size:100.1%;
+           
             background-color:#20bca7;
-    }
-    
-    input:focus {
-    background-color:darksalmon;
-    }
+           
+           }
     
     ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:   #ffffcc;
@@ -96,7 +128,7 @@ input:hover{
     <script>
 
     function myFunction() {
-    
+    var button = document.getElementById("gensys");
 
     if (document.getElementById("gensys").innerHTML === "GSICU (3C) is The Best!") {
         document.getElementById("gensys").innerHTML = "GSICU (3C)";
@@ -107,7 +139,8 @@ input:hover{
    }
 
  function otherFunction() {
-   
+    var button = document.getElementById("gensys");
+
     if (document.getElementById("cardio").innerHTML === " CVICU (3A8) Almost As Good As 3C!") {
         document.getElementById("cardio").innerHTML = "CVICU (3A8)";
     }
@@ -116,15 +149,15 @@ input:hover{
     }
    }
 
-   
+       
 var tday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 var tmonth = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
 
 function GetClock(){
 var d=new Date();
 var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nhour=d.getHours(),nminute=d.getMinutes();
-var shift;  
-   // alert("Hi Charge, it's " +nhour+ ":"+nminute+" we're almost there!");
+var shift;    
     switch(true){
         case(nhour>7 && nhour<=19):
             shift="Nights";
@@ -132,30 +165,33 @@ var shift;
         case(nhour>19 || nhour <=7):
             shift="Days";
             break;
-                 
+            
     }
 
 document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+ "" + ". "+shift;
-      
+ 
+
 }
 
 window.onload=function(){
 GetClock();
 setInterval(GetClock,1000);
-    
+ alert("Hey Charge, if this program opens in Internet Explorer it will not work properly. Close the program, right click the icon, choose 'open with...' and then pick either Firefox or Chrome. Enjoy :-)");
 }
-  
+
+
+
+
     </script>
 </head>
 <body>
  <div id="clockbox" ></div>
-    
 <br>
     <br>
 <form>
      <h3 id="gensys" onclick="myFunction()"> GSICU (3C)</h3>
   
-    <input type="text" size="35" class="stats" placeholder=" stats & responders here">
+    <input type="text" size="45" class="stats" placeholder=" stats & responders here">
     <br>
   <input type="text" class="inputBox" placeholder="RT name here" list="adstaff" >
   <datalist id="adstaff" >
@@ -164,9 +200,12 @@ setInterval(GetClock,1000);
     <option value="Alexie P.">
     <option value="Alexis C.">
     <option value="Amy">
+    <option value="Amanda B.">
+    <option value="Amanda D.">
     <option value="Anna R.">
     <option value="Andrea">
-    <option value="Andrew">
+    <option value="Andrew D.">
+    <option value="Andrew M.">
     <option value="Andy">
     <option value="Angela">
     <option value="Annette">
@@ -177,6 +216,7 @@ setInterval(GetClock,1000);
     <option value="Brandon">
     <option value="Brenda">
     <option value="Brianna">
+    <option value="Brigitte">
     <option value="Cara">
     <option value="Carla">
     <option value="Carmen L.">
@@ -195,7 +235,7 @@ setInterval(GetClock,1000);
     <option value="Christine La.">
     <option value="Clive">
     <option value="Colin">
-    <option value="Conny">
+    <option value="Courtney">
     <option value="Crystal">
     <option value="Dan D.">
     <option value="Dan L.">
@@ -211,9 +251,11 @@ setInterval(GetClock,1000);
     <option value="Ellen">
     <option value="Emily">
     <option value="Eric">
+    <option value="Fatima">
     <option value="Felicia">
     <option value="Fiona">
     <option value="Gail">
+    <option value="Gillian">
     <option value="Geniene">
     <option value="Graham">
     <option value="Hailey">
@@ -223,27 +265,35 @@ setInterval(GetClock,1000);
     <option value="James">
     <option value="Janet">
     <option value="Jeff W.">
-    <option value="Jenna">
+    <option value="Jeremy">
+    <option value="Jenna P.">
+    <option value="Jenna H.">
+    <option value="Jennifer">
     <option value="Jim">
     <option value="Joel">
+    <option value="John">
     <option value="Jose">
+    <option value="Joshua">
     <option value="Kahlia">
     <option value="Karrie B.">
     <option value="Katherine">
+    <option value="Katie">
     <option value="Kayla Wa.">
     <option value="Kayla Wo.">
     <option value="Kelly E.">
     <option value="Kelly T.">
-    <option value="Kelsey K.">
+    <option value="Kelsey L.">
     <option value="Kelsey O.">
     <option value="Kerri G.">
     <option value="Kevin">
     <option value="Kim R.">
     <option value="Kirsten">
+    <option value="Kole">
     <option value="Kristin">
     <option value="Kristy">
     <option value="Krysta">
     <option value="Kylie">
+    <option value="Kyren">
     <option value="Linda">
     <option value="Lindsay Be.">
     <option value="Lindsay T.">
@@ -252,32 +302,39 @@ setInterval(GetClock,1000);
     <option value="Lynsi M.">
     <option value="Marianella">
     <option value="Marie">
-    <option value="Mariessa">
+    <option value="Mariesa">
     <option value="Marion">
     <option value="Matt">
+    <option value="Megan">
     <option value="Melissa">
     <option value="Michelle D.">
     <option value="Michelle O.">
     <option value="Michelle T.">
     <option value="Mike">
+    <option value="Murray">
     <option value="Nadia D.">
     <option value="Nadia Q.">
     <option value="Nancy">
     <option value="Nathan">
     <option value="Ngaire">
     <option value="Nick">
+    <option value="Nickie">
+    <option value="Nicole">
     <option value="Nicole C.">
     <option value="Nicole L.">
     <option value="Nicole N.">
+    <option value="Nikki Li.">
+    <option value="Parin">
     <option value="Parveen ">
     <option value="Paula">
     <option value="Rachelle">
     <option value="Raquel">
-    <option value="Rebecca">
+    <option value="Rebecca S.">
+    <option value="Rebecca C.">
     <option value="Richard">
     <option value="Rick">
     <option value="Roberta">
-    <option value="Robbyn B.">
+    <option value="Robbyn D.">
     <option value="Robyn S.">
     <option value="Roxanne">
     <option value="Ryan">
@@ -298,12 +355,14 @@ setInterval(GetClock,1000);
     <option value="Sophie">
     <option value="Stacey">
     <option value="Stanley">
+    <option value="Steve">
     <option value="Stephanie">
     <option value="Sue">
-    <option value="Susan">
+    <option value="Susan M.">
     <option value="Sydney">
     <option value="Teresa S.">
     <option value="Terri J.">
+    <option value="Tiffany">
     <option value="Tina">
     <option value="Tricia W.">
     <option value="Trisha R.">
@@ -311,7 +370,8 @@ setInterval(GetClock,1000);
     <option value="Vanessa">
     <option value="Vonnie">
     <option value="Yaunna">
-    <option value="Wendy H.">
+    <option value="Wendy">
+ <!--
     <option value="Amanda P.">
     <option value="Amy J.">
     <option value="Amy K.">
@@ -371,6 +431,7 @@ setInterval(GetClock,1000);
     <option value="Terri S.">
     <option value="Wendy L.">
     <option value="">
+ -->
   </datalist>
     <input list="adstaff"  placeholder="RT name here">
   <datalist id="adstaff">
@@ -396,10 +457,18 @@ setInterval(GetClock,1000);
     <input list="adstaff"  placeholder="RT name here">
   <datalist id="adstaff">
   </datalist>
- 
+      <input list="adstaff" placeholder="RT name here">
+  <datalist id="adstaff">
+  </datalist>
+  <input list="adstaff" placeholder="RT name here">
+  <datalist id="adstaff">
+  </datalist>
+  <input list="adstaff" placeholder="RT name here">
+  <datalist id="adstaff">
+  </datalist>
     
     <h3 id="cardio" onclick="otherFunction()"> CVICU (3A8)</h3>
-    <input type="text"size="35" class="stats" placeholder=" stats & responders here">
+    <input type="text"size="45" class="stats" placeholder=" stats & responders here">
     <br>
     <input list="adstaff"  placeholder="RT name here" >
   <datalist id="adstaff">
@@ -422,10 +491,19 @@ setInterval(GetClock,1000);
      <input list="adstaff"  placeholder="RT name here">
   <datalist id="adstaff">
   </datalist>
-    
+     <input list="adstaff"  placeholder="RT name here">
+  <datalist id="adstaff">
+  </datalist>
+        <input list="adstaff" placeholder="RT name here">
+  <datalist id="adstaff">
+  </datalist>
+  <input list="adstaff" placeholder="RT name here">
+  <datalist id="adstaff">
+  </datalist>
+
    
-    <h3> Neuro ICU (4A4)</h3>
-    <input type="text" size="35" class="stats" placeholder=" stats & responders here">
+    <h3 id= "neuro"> Neuro ICU (4A4)</h3>
+    <input type="text" size="45" class="stats" placeholder=" stats & responders here">
     <br>
     <input list="adstaff"  placeholder="RT name here">
   <datalist id="adstaff">
@@ -442,9 +520,12 @@ setInterval(GetClock,1000);
     <input list="adstaff"  placeholder="RT name here">
   <datalist id="adstaff">
   </datalist>
+   <input list="adstaff" placeholder="RT name here">
+  <datalist id="adstaff">
+  </datalist>
    
     <h3> Medicine (G)</h3>
-    <input type="text" size="35" class="stats" placeholder=" stats & responders here">
+    <input type="text" size="45" class="stats" placeholder=" stats & responders here">
     <br>
      <input list="adstaff"  placeholder="RT name here">
   <datalist id="adstaff">
@@ -462,8 +543,8 @@ setInterval(GetClock,1000);
   <datalist id="adstaff">
   </datalist>
    
-    <h3> Floors (F)</h3>
-    <input type="text"size="35" class="stats" placeholder=" stats & responders here">
+    <h3 class="floors"> Floors (F)</h3>
+    <input type="text"size="45" class="stats" placeholder=" stats & responders here">
     <br>
     <input list="adstaff"  placeholder="RT name here">
   <datalist id="adstaff">
@@ -478,8 +559,8 @@ setInterval(GetClock,1000);
   <datalist id="adstaff">
   </datalist>
   
-    <h3> ER</h3>
-    <input type="text" size="30" class="stats" placeholder=" stats & responders here">
+    <h3 class="er"> ER</h3>
+    <input type="text" size="40" class="stats" placeholder=" stats & responders here">
     <br>
     <input list="adstaff"  placeholder="RT name here">
   <datalist id="adstaff">
@@ -490,40 +571,10 @@ setInterval(GetClock,1000);
     <input list="adstaff"  placeholder="RT name here">
   <datalist id="adstaff">
   </datalist>
-    
-     <h3> STOLLERY</h3>
-    <input type="text"size="55" class="stats" placeholder=" stats here">
     <br>
-    <input list="adstaff"  placeholder="RT name here">
-  <datalist id="adstaff">
-  </datalist>
-        <input list="adstaff" placeholder="RT name here">
-  <datalist id="adstaff">
-  </datalist>
-    <input list="adstaff" placeholder="RT name here">
-  <datalist id="adstaff">
-  </datalist>
-    <input list="adstaff"  placeholder="RT name here">
-  <datalist id="adstaff">
-  </datalist>
-    <input list="adstaff"  placeholder="RT name here">
-  <datalist id="adstaff">
-  </datalist>
-    <input list="adstaff"  placeholder="RT name here">
-  <datalist id="adstaff">
-  </datalist>
-     <input list="adstaff" placeholder="RT name here" >
-  <datalist id="adstaff">
-  </datalist>
-    <input list="adstaff"  placeholder="RT name here">
-  <datalist id="adstaff">
-  </datalist>
-    <input list="adstaff" placeholder="RT name here" >
-  <datalist id="adstaff">
-  </datalist>
-      <input list="adstaff" placeholder="RT name here">
-  <datalist id="adstaff">
-  </datalist>
+    <br>	
+   <input type="text"size="90" class="stats" placeholder=" extra information here">
+   <input type="text"size="90" class="stats" placeholder=" extra information here">
 
        <br>
     <button id ="printbtn" type="button" onclick="window.print();" >Print this page</button>
