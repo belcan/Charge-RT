@@ -167,6 +167,8 @@ var shift;
             break;
             
     }
+    
+ 
 
 document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+ "" + ". "+shift;
  
@@ -179,6 +181,12 @@ setInterval(GetClock,1000);
  alert("Hey Charge, if this program opens in Internet Explorer it will not work properly. Close the program, right click the icon, choose 'open with...' and then pick either Firefox or Chrome. Enjoy :-)");
 }
 
+function easterEgg(){
+    document.getElementById('clockbox').innerHTML="getClock()"
+}
+function easterEgg2(){
+    document.getElementById('clockbox').innerHTML="Say Hi to Nick!"
+}
 
 function threeC(){
 document.getElementById("gensys").innerHTML = "GSICU (3C)"
@@ -228,10 +236,11 @@ function ear2() {
   document.getElementById("er").innerHTML = "You have a good one!"
 }
 
+ 
     </script>
 </head>
 <body>
- <div id="clockbox" ></div>
+ <div id="clockbox" onclick="easterEgg2()"></div>
 <br>
     <br>
 <form>
